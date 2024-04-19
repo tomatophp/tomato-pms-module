@@ -36,6 +36,11 @@ class TomatoPmsServiceProvider extends ServiceProvider
             __DIR__.'/../../resources/lang' => base_path('lang/vendor/tomato-pms'),
         ], 'tomato-pms-lang');
 
+        //Register generate command
+        $this->commands([
+            \Modules\TomatoPms\App\Console\TomatoPmsInstall::class,
+        ]);
+
         TomatoMenu::register([
             Menu::make()
                 ->group(__('PMS'))
